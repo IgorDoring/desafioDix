@@ -1,0 +1,12 @@
+footer{
+  background-color: #454545;
+}
+
+footer a{
+  text-decoration: none;
+  color: #a1a1a1;
+}
+
+footer div ul{
+  list-style-type: none;
+}

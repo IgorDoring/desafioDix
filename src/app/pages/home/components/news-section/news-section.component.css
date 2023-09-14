@@ -1,0 +1,8 @@
+.red-section{
+  background-color: #cc0000;
+  color: white;
+}
+
+section.red-section{
+  border-radius: 0 8px 0 8px;
+}

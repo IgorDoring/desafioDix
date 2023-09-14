@@ -1,0 +1,65 @@
+<footer>
+  <section class="container py-3">
+    <div class="row">
+      <div class="col-md-3 py-sm-1 text-white">
+        <img class="img-fluid" src="assets/logo-portalStylo.png" alt="">
+        <p class="small py-2">O Portal Stylo entra no seu 15º ano e mantém os seus leitores informados, em tempo real, sobre as últimas notícias regionais, nacionais e internacionais. </p>
+        <p class="small">CNPJ: 34.171.724/0001-10</p>
+      </div>
+      <div class="col-md-3 py-sm-1 text-white">
+        <h6>Transparência</h6>
+        <p>
+          <a class="small" href="#">Políticas de Privacidade</a><br>
+          <a class="small" href="#">Termos de Uso</a>
+        </p>
+        <h6>Acesso Interno</h6>
+        <p>
+          <a class="small" href="#">Painel Administrativo</a><br>
+          <a class="small" href="#">Webmail</a>
+        </p>
+      </div>
+      <div class="col-md-3 py-sm-1">
+        <h6 class="text-white">Mapa do Site</h6>
+        <ul class="small p-0 m-0">
+          <li *ngFor="let link of mapa;" class="text-decoration-none py-1" routerLinkActive="active">
+            <a *ngIf="link.name == 'Home'"
+               class=""
+               routerLink="/"
+               aria-current="page"
+               id="{{ link.id }}">
+              {{link.name}}
+            </a>
+            <a *ngIf="link.name != 'Home'"
+               class=""
+               [routerLink]="['/pages', link.id, link.name, 'contents']"
+               aria-current="page"
+               id="{{ link.id }}">
+              {{link.name}}
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-3 py-sm-1">
+        <h6 class="text-white">Localização</h6>
+        <p class="small" style="color: #a1a1a1;">
+          <img src="assets/arrow-square-up-svgrepo-com.svg" style="max-height: 24px" alt=""> <a href="#">Veja no Mapa</a>
+        </p>
+        <p class="small" style="color: #a1a1a1;">
+          <img src="assets/mail-alt-3-svgrepo-com.svg" style="max-height: 24px" alt=""> <a href="mailto:contato@portalstylo.com.br">contato@portalstylo.com.br</a>
+        </p>
+        <p class="small" style="color: #a1a1a1;">
+          <img src="assets/smartphone-svgrepo-com.svg" style="max-height: 24px" alt=""> <a href="tel:+5563984070155">(63) 98407-0155</a>
+        </p>
+      </div>
+    </div>
+  </section>
+  <section class="py-3 text-white" style="background-color: #5b5b5b">
+    <div class="container">
+      <div class="d-flex flex-column flex-md-row justify-content-between">
+        <p class="small m-0 p-1">© Copyright 2023 Portal Stylo Todos os direitos reservados</p>
+        <p class="small m-0 p-1">V 01.01.01</p>
+        <p class="small m-0 p-1">Desenvolvido por <img class="img-fluid" style="height: 20px" src="assets/logoDixDigital.png" alt=""></p>
+      </div>
+    </div>
+  </section>
+</footer>

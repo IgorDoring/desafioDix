@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
+
+:root{
+  --red: #cc0000;
+  --cinza-escuro: #454545;
+  --cinza-claro: #f4f4f4;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body { margin: 0; font-family: "Montserrat", "Helvetica Neue", sans-serif; }

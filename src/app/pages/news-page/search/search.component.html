@@ -1,0 +1,19 @@
+<section>
+  <h5 class="text-uppercase fw-bold mb-2"><img src="assets/Rectangle741.svg" alt="">Busca</h5>
+
+  <div class="container-fluid" *ngFor="let noticia of results;let i = index">
+    <div class="row">
+      <a class="d-inline-flex text-decoration-none text-reset"
+         [routerLink]="['/noticia', noticia['slug']]">
+        <div class="col-4">
+          <img class="img-thumbnail border-0 " style="border-radius: 0px 9px 0px 9px" [src]="noticia.image" alt="">
+        </div>
+        <div class="col-8 d-flex flex-column justify-content-center">
+          <h6 class="fw-bold text-black">{{noticia.title}}</h6>
+          <p class="mt-2 mb-5 text-truncate text-body-tertiary">{{noticia.title}}</p>
+          <span class="small fw-light text-body-tertiary">{{noticia['credits']}} - {{noticia['created_at'] | date: "dd/MM/yyyy"}}</span>
+        </div></a>
+    </div>
+    <hr>
+  </div>
+</section>

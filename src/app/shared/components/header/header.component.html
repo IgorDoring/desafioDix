@@ -1,0 +1,71 @@
+<header>
+  <div class="container py-3">
+    <div class="d-none d-md-flex justify-content-between" style="">
+      <a class="navbar-brand" routerLink="/">
+        <img class="logo" src="assets/logo-portalStylo.png" alt="logo">
+      </a>
+      <form [formGroup]="searchForm" (ngSubmit)="onSubmit()" class="search d-sm-none d-md-block" style="">
+        <input (keyup.enter)="onSubmit()" class="" style="" type="search" role="search" placeholder="Pesquisar" formControlName="search">
+        <button class="btn" type="submit"><img src="assets/search_black_24dp.svg" alt="search"></button>
+      </form>
+      <div class="redes-sociais d-sm-none d-md-flex">
+        <a href="">
+          <img src="assets/brand-youtube-svgrepo-com.svg" alt="">
+        </a>
+        <a href="">
+          <img src="assets/brand-instagram-svgrepo-com.svg" alt="">
+        </a>
+        <a href="">
+          <img src="assets/brand-twitter-svgrepo-com.svg" alt="">
+        </a>
+        <a href="">
+          <img src="assets/brand-fb-sq-svgrepo-com.svg" alt="">
+        </a>
+      </div>
+    </div>
+    <div class="">
+      <nav class="navbar navbar-expand-md">
+        <div class="container-fluid">
+          <a class="navbar-brand d-block d-md-none" href="#">
+            <img  src="assets/logo-portalStylo.png" alt="logo">
+          </a>
+          <button class="navbar-toggler" data-bs-theme="dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div  class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <hr class="d-block d-md-none w-100 text-white">
+            <ul class="navbar-nav mb-2 mb-lg-0 text-sm-center text-md-start">
+              <li *ngFor="let link of menu;" class="nav-item m-1" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <a *ngIf="link.name == 'Home'" class="nav-link text-white" routerLink="/" aria-current="page"
+                   id="{{ link.id }}">{{link.name}}</a>
+                <a *ngIf="link.name != 'Home'" class="nav-link text-white"
+                   [routerLink]="['/pages', link.id, link.name, 'contents']"
+                   aria-current="page"
+                   id="{{ link.id }}">{{link.name}}</a>
+              </li>
+            </ul>
+            <hr class="d-block d-md-none w-100 text-white">
+            <div class="redes-sociais flex d-md-none">
+              <a href="">
+                <img src="assets/brand-youtube-svgrepo-com.svg" alt="">
+              </a>
+              <a href="">
+                <img src="assets/brand-instagram-svgrepo-com.svg" alt="">
+              </a>
+              <a href="">
+                <img src="assets/brand-twitter-svgrepo-com.svg" alt="">
+              </a>
+              <a href="">
+                <img src="assets/brand-fb-sq-svgrepo-com.svg" alt="">
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+
+    </div>
+
+  </div>
+
+</header>

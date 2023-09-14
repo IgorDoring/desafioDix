@@ -1,0 +1,46 @@
+<section class="container-fluid d-flex justify-content-center">
+  <div *ngIf="assigned" class="w-75 d-md-flex justify-content-center">
+    <h5>Muito Obrigado!</h5>
+  </div>
+  <div class="w-75 d-md-flex justify-content-center">
+    <div class="text-center text-white p-4"
+         style="border-radius: 11px 0px 0px 11px;background-color: var(--cinza-escuro);box-shadow: 5px 4px 10px 0px #00000040;">
+      <h5 class="fw-bold">Newsletter</h5>
+      <p class="small">Preencha o campo ao lado e fique por dentro de todas as nossas novidades!</p>
+    </div>
+    <div class="p-4" style="border-radius: 0 11px 11px 0;box-shadow: 5px 4px 10px 0px #00000040;">
+      <form class="row" [formGroup]="newsletterForm" (ngSubmit)="onSubmit()">
+        <div class="col-md-6">
+          <label class="text-body-tertiary small mb-2 w-100" for="nome">Nome Completo</label>
+          <input class="p-1 rounded-1 text-body-tertiary small w-100" placeholder="informe seu nome"
+                 id="nome"
+                 formControlName="name"
+                 type="text" style="border: 0;background-color: var(--cinza-claro);">
+          <span class="small text-danger" *ngIf="!newsletterForm.get('name').valid && newsletterForm.get('name').touched">Campo Invalido</span>
+        </div>
+        <div class="col-md-6">
+          <label class="text-body-tertiary small mb-2 w-100" for="email">Email</label>
+          <input class="p-1 rounded-1 text-body-tertiary small w-100" placeholder="informe seu email" id="email"
+                 formControlName="email"
+                 type="email" style="border: 0;background-color: var(--cinza-claro);">
+          <span class="small text-danger" *ngIf="!newsletterForm.get('email').valid && newsletterForm.get('email').touched">Email Invalido</span>
+        </div>
+        <div class="col-12">
+          <div class="form-check small text-body-tertiary py-1">
+            <label class="form-check-label" for="agreement"> Li e concordo com os Termos de Uso e Políticas de Privacidade<br><span class="small text-danger w-100" *ngIf="!newsletterForm.get('agreement').value && newsletterForm.get('agreement').touched">Por favor aceite os termos</span></label>
+            <input class="form-check-input" type="checkbox" value="" id="agreement"
+                   formControlName="agreement" [attr.checked]="newsletterForm.get('agreement').value">
+
+          </div>
+
+        </div>
+        <div class="col-12">
+          <div class="container-fluid text-center">
+            <button type="submit" class="btn btn-danger mt-3">Confirmar</button>
+          </div>
+          <span class="small text-danger" *ngIf="sent && !assigned">Um erro inesperado ocorreu tente novamente mais tarde</span>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

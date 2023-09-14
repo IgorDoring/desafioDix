@@ -1,0 +1,108 @@
+<section *ngIf="!destaques && !lastNews && !ranking" class="container p-2 my-2" [ngClass]="{'red-section': redSection}">
+  <h6 class="text-uppercase fw-bold" [ngClass]="{'red-section': redSection}"><img
+    [src]="redSection ? 'assets/RectangleGray741.svg' : 'assets/Rectangle741.svg'" alt=""> {{newsSection.name}}</h6>
+  <div class="row">
+    <div class="col-md-5">
+      <a [routerLink]="['/noticia', newsSection['contents'][0]['slug']]">
+        <img class="img-fluid mb-3" [src]="newsSection['contents'][0]['image']" alt="">
+      </a>
+    </div>
+    <div class="col-md-7 d-flex flex-column justify-content-center mb-sm-2">
+      <h6 [routerLink]="['/noticia', newsSection['contents'][0]['slug']]" class="text-decoration-none text-uppercase small fw-bold mb-1 p-0"
+          [ngClass]="{'red-section': redSection, 'text-black': !redSection}">{{ newsSection.name }}</h6>
+      <a [routerLink]="['/noticia', newsSection['contents'][0]['slug']]" class="fw-light text-decoration-none"
+         [ngClass]="{'red-section': redSection, 'text-black': !redSection}">{{ newsSection['contents'][0]['title'] }}</a>
+      <hr class="" [ngClass]="{'red-section': redSection}">
+      <h6 [routerLink]="['/noticia', newsSection['contents'][1]['slug']]" class="text-decoration-none text-uppercase small fw-bold mb-1 p-0"
+          [ngClass]="{'red-section': redSection, 'text-black': !redSection}">{{ newsSection.name }}</h6>
+      <a [routerLink]="['/noticia', newsSection['contents'][1]['slug']]" class="fw-light text-decoration-none"
+         [ngClass]="{'red-section': redSection, 'text-black': !redSection}">{{ newsSection['contents'][1]['title'] }}</a>
+    </div>
+    <div class="col-12">
+      <div class="hstack gap-3" [ngClass]="{'red-section': redSection}">
+        <div class="">
+          <p class="text-decoration-none text-uppercase fw-bold mb-1">
+            <a [routerLink]="['/noticia', newsSection['contents'][2]['slug']]" class="fw-bold text-decoration-none"
+               [ngClass]="{'red-section': redSection, 'text-black': !redSection}">{{ newsSection.name }}</a></p>
+          <p class="fw-light">
+            <a [routerLink]="['/noticia', newsSection['contents'][2]['slug']]" class="fw-light text-decoration-none"
+               [ngClass]="{'red-section': redSection, 'text-black': !redSection}">{{ newsSection['contents'][2]['title'] }}</a></p>
+        </div>
+        <div class="" [ngStyle]="{'background-color': redSection ? 'white' : '#cc0000'}"
+             style="height:50px;width: 5px"></div>
+        <div class="">
+          <p class="text-decoration-none text-uppercase mb-1">
+            <a [routerLink]="['/noticia', newsSection['contents'][2]['slug']]" class="fw-bold text-decoration-none"
+               [ngClass]="{'red-section': redSection, 'text-black': !redSection}">{{ newsSection.name }}</a></p>
+          <p class="fw-light">
+            <a [routerLink]="['/noticia', newsSection['contents'][2]['slug']]" class="fw-light text-decoration-none"
+               [ngClass]="{'red-section': redSection, 'text-black': !redSection}">{{ newsSection['contents'][3]['title'] }}</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section *ngIf="destaques && !lastNews && !ranking" class="container-fluid">
+  <h6 class="text-decoration-none text-uppercase fw-bold"><img src="assets/Rectangle741.svg" alt=""> Destaques</h6>
+  <div class="row mb-4">
+    <div class="col-md-6">
+      <a [routerLink]="['/noticia', newsSection[0]['slug']]">
+        <img class="img-fluid mb-3" [src]="newsSection[0]['image']"
+             alt="imagem 1"
+             style="width: auto;max-height: 300px"></a>
+      <a style="color: black" [routerLink]="['/noticia', newsSection[0]['slug']]"
+         class="text-decoration-none text-uppercase titulo-noticia mb-1">
+        {{ newsSection[0].name }}
+      </a>
+      <a style="color: black" [routerLink]="['/noticia', newsSection[0]['slug']]" class="text-decoration-none">
+        <strong>{{ newsSection[0]['title'] }}</strong>
+      </a>
+    </div>
+    <div class="col-md-6">
+      <a [routerLink]="['/noticia', newsSection[1]['slug']]">
+        <img [routerLink]="['/noticia', newsSection[1]['slug']]"
+             class="text-decoration-none img-fluid mb-3" [src]="newsSection[1]['image']"
+             alt=""
+             style="width: auto;max-height: 300px"></a>
+      <a style="color: black" [routerLink]="['/noticia', newsSection[1]['slug']]"
+         class="text-decoration-none text-uppercase titulo-noticia mb-1 mb-sm-3">{{ newsSection[1].name }}</a>
+      <a style="color: black" [routerLink]="['/noticia', newsSection[1]['slug']]"
+         class="text-decoration-none">
+        <strong>{{ newsSection[1]['title'] }}</strong></a>
+    </div>
+  </div>
+  <hr>
+  <div class="hstack gap-3 mb-4">
+    <div class="vstack gap-1">
+      <a style="color: black" [routerLink]="['/noticia', newsSection[2]['slug']]"
+         class="d-block text-decoration-none text-uppercase titulo-noticia fw-bold">{{ 'Destaques' }}</a>
+      <a style="color: black" [routerLink]="['/noticia', newsSection[2]['slug']]"
+         class="d-block text-decoration-none">{{ newsSection[2]['subtitle'] }}</a>
+    </div>
+    <div class="" style="background-color: #cc0000;height:50px;width: 5px"></div>
+    <div class="vstack gap-1">
+      <a style="color: black" [routerLink]="['/noticia', newsSection[3]['slug']]"
+         class="d-block text-decoration-none text-uppercase titulo-noticia fw-bold">{{ 'Destaques' }}</a>
+      <a style="color: black" [routerLink]="['/noticia', newsSection[3]['slug']]"
+         class="d-block text-decoration-none">{{ newsSection[3]['subtitle'] }}</a></div>
+  </div>
+  <hr>
+</section>
+
+<a *ngIf="ranking && !lastNews" class="d-inline-flex text-decoration-none text-reset" [routerLink]="['/noticia', newsSection['slug']]">
+  <p class="fs-4 fw-bold px-3">{{ newsSection['ranking'] }}</p>
+  <div class="">
+    <h6 class="text-uppercase small fw-bold mb-1 p-0 titulo-noticia">{{newsSection.title}}</h6>
+    <p class="fw-light small">{{newsSection['subtitle']}}</p>
+  </div>
+</a>
+
+<a *ngIf="!ranking && lastNews" class="d-inline-flex text-decoration-none text-reset" [routerLink]="['/noticia', newsSection['slug']]">
+  <p class="fs-4 fw-bold px-3"><img src="assets/relogio-seta.svg" alt="relogio"></p>
+  <div class="">
+    <h6 class="text-uppercase small fw-bold mb-1 p-0 titulo-noticia">{{newsSection.title}}</h6>
+    <p class="fw-light small">{{newsSection['subtitle']}}</p>
+  </div>
+</a>

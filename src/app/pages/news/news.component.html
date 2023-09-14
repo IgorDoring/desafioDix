@@ -1,0 +1,46 @@
+<main>
+  <div *ngIf="!noticia['error']" class="container-fluid">
+
+    <img [src]="noticia['image']" alt="" class="img-fluid">
+    <span class="small text-body-tertiary ">{{noticia['cover_caption']}}</span>
+    <h4 class="fw-bold mt-3">{{noticia.title}}</h4>
+    <p class="mb-3">{{noticia['subtitle']}}</p>
+
+    <div class="d-flex flex-row justify-content-between">
+      <div>
+        <p class="small m-0">{{noticia['credits']}}</p>
+        <p class="small fw-light">{{noticia['created_at'] | date: "dd/MM/yyyy hh\h:ss"}}<br>Att.
+          em: {{noticia['updated_at'] | date: "dd/MM/yy hh\h:ss"}}</p>
+      </div>
+      <div></div>
+    </div>
+
+    <hr class="my-4">
+
+    <div class="" [innerHTML]="noticia['descritive']"></div>
+
+    <hr class="my-4">
+
+    <app-publicidade [tipo]="2"></app-publicidade>
+
+    <hr class="mb-3">
+    <h6 class=" my-2 text-uppercase fw-bold"><img src="assets/Rectangle741.svg" alt=""> Veja Também</h6>
+    <div class="hstack gap-2">
+      <div class="vstack gap-2">
+        <img class="img-thumbnail border-0" [src]="noticia['posts'][0]['image']" alt="">
+        <a style="color: black" [routerLink]="['/noticia', noticia['posts'][0]['slug']]"
+           class="small d-block text-reset text-decoration-none text-uppercase titulo-noticia fw-bold">{{ noticia['posts'][0]['title'] }}</a>
+        <a style="color: black" [routerLink]="['/noticia', noticia['posts'][0]['slug']]"
+           class="small d-block text-decoration-none">{{ noticia['posts'][0]['subtitle'] }}</a>
+      </div>
+      <div class="ms-auto" style="background-color: #cc0000;height:50px;width: 5px"></div>
+      <div class="vstack gap-2">
+        <img class="img-thumbnail border-0" [src]="noticia['posts'][1]['image']" alt="">
+        <a style="color: black" [routerLink]="['/noticia', noticia['posts'][1]['slug']]"
+           class="d-block text-reset small text-uppercase titulo-noticia fw-bold text-decoration-none">{{ noticia['posts'][1]['title'] }}</a>
+        <a style="color: black" [routerLink]="['/noticia', noticia['posts'][1]['slug']]"
+           class="small d-block text-decoration-none">{{ noticia['posts'][1]['subtitle'] }}</a>
+      </div>
+    </div>
+  </div>
+</main>

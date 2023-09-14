@@ -1,0 +1,34 @@
+
+<div class="container-fluid d-none d-md-block my-3" *ngIf="tipo == 1">
+  <span class="small">Publicidade</span>
+  <img class="img-fluid" src="assets/Publicidade1.jpg" alt="publicidade">
+</div>
+
+<div class="container-fluid d-none d-md-block" *ngIf="tipo == 2">
+  <span class="small">Publicidade</span>
+  <div class="row">
+    <img class="col-4" src="assets/Propaganda3.jpg" alt="publicidade">
+    <img class="col-4" src="assets/Propaganda3.jpg" alt="publicidade">
+    <img class="col-4" src="assets/Propaganda3.jpg" alt="publicidade">
+  </div>
+</div>
+<div *ngIf="tipo == 3" class="container-fluid my-2">
+  <div id="carouselBanners" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button *ngFor="let b of banners;let i = index;" type="button"
+              data-bs-target="#carouselBanners"
+              [attr.data-bs-slide-to]="i"
+              [ngClass]="{active: i == 0}"
+              [attr.aria-current]="{true: i == 0}"
+              [attr.aria-label]="'Slide '+i"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item" *ngFor="let b of banners; let i = index"
+           [id]="b.id"
+           [ngClass]="{active: i == 0}"
+           data-bs-interval="3000">
+        <img style="height: 155px" [src]="b.image" class="d-block w-100" alt="...">
+      </div>
+    </div>
+  </div>
+</div>

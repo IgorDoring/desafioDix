@@ -1,0 +1,30 @@
+
+  <form [formGroup]="enqForm" (ngSubmit)="onSubmit()" class="my-3 d-flex flex-column">
+    <p class="small">{{enq['name']}}</p>
+    <p class="small"><img src="assets/calendario.svg" alt=""> {{ enq['start_date'] | date:'dd/MM/y'}}</p>
+    <p class="small"><img src="assets/calendario.svg" alt=""> {{ enq['end_date'] | date:'dd/MM/y'}}</p>
+    <div>
+      <div *ngFor="let o of enq['alternatives'];let optIndex = index"  class="form-check">
+        <input *ngIf="enq['is_active']"
+               class="form-check-input"
+               type="radio"
+               formControlName="alternatives"
+               [id]="'enq'+enq.id+'Opt'+optIndex"
+               [value]="o">
+        <label class="form-check-label" [for]="'enq'+enq.id+'Opt'+optIndex">
+          {{o}}
+        </label>
+        <div *ngIf="!enq['is_active']" class="d-flex justify-content-start align-items-center">
+          <span style="padding-left: 5px;background-color: var(--red);height: 10px;" [ngStyle]="{'width': enq['results'][o]['percentage']}"></span>
+          <span class="px-2">{{enq['results'][o]['percentage']}}</span>
+        </div>
+      </div>
+      <div class="">
+        <button *ngIf="enq['is_active']"
+                class="btn btn-danger my-3"
+                type="submit">Votar</button>
+        <p *ngIf="!enq['is_active']"
+           class="btn btn-outline-danger my-3 disabled">Votações Encerradas</p>
+      </div>
+    </div>
+  </form>

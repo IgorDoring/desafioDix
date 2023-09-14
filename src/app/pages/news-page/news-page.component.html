@@ -1,0 +1,36 @@
+<section>
+  <h5 class="text-uppercase fw-bold mb-2"><img src="assets/Rectangle741.svg" alt="">{{pageName}}</h5>
+
+  <div class="container-fluid" *ngFor="let noticia of noticias;let i = index">
+    <div class="row">
+      <a class="d-inline-flex text-decoration-none text-reset"
+         [routerLink]="['/noticia', noticia['slug']]">
+      <div class="col-4">
+        <img class="img-thumbnail border-0 " style="border-radius: 0px 9px 0px 9px" [src]="noticia.image" alt="">
+      </div>
+      <div class="col-8 d-flex flex-column justify-content-center">
+        <h6 class="fw-bold text-black">{{noticia.title}}</h6>
+        <p class="mt-2 mb-5 text-truncate text-body-tertiary">{{noticia.title}}</p>
+        <span class="small fw-light text-body-tertiary">{{noticia['credits']}} - {{noticia['created_at'] | date: "dd/MM/yyyy"}}</span>
+      </div></a>
+    </div>
+    <hr>
+  </div>
+      <div class="d-flex flex-row justify-content-center align-content-center">
+        <ng-template ngFor let-n [ngForOf]="page['links']" let-i="index" let-first="first" let-last="last">
+          <a class="btn btn-danger rounded p-1"
+                  [ngClass]="{disabled: page['current_page'] == 1}"
+             [routerLink]="['/pages', this.pageId, this.pageName, 'contents']"
+             [queryParams]="{'page': ''+(page['current_page']-1)}"
+          *ngIf="first">Prev</a>
+          <div class="m-2 p-1 d-flex justify-content-center align-content-center btn"
+               [ngClass]="{'btn-danger': page['current_page'] == i, 'btn-outline-danger': page['current_page'] != i}"
+          *ngIf="!(first || last)">{{ i }}</div>
+          <a class="btn btn-danger rounded p-1"
+             [ngClass]="{disabled: page['current_page'] == page['last_page']}"
+             [routerLink]="['/pages', this.pageId, this.pageName, 'contents']"
+             [queryParams]="{'page': ''+(page['current_page']+1)}"
+                  *ngIf="last">Next</a>
+        </ng-template>
+  </div>
+</section>
