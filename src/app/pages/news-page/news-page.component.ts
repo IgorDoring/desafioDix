@@ -26,6 +26,18 @@ export class NewsPageComponent {
   ngOnInit(){
     this.pageName = decodeURI(this.route.snapshot.params['pageName'])
     this.pageId = this.route.snapshot.params['pageId']
+    this.route.params.subscribe((params) => {
+      this.pageId = params["pageId"]
+      this.pageName = params["pageName"]
+      this.portalService.carregarPage(this.pageId, this.route.snapshot.queryParams['page']).subscribe(
+        (next) => {
+          this.page = next
+          this.noticias = this.page['data']
+
+        }, (err) => {
+          console.log(err)
+        })
+    })
     this.route.queryParams.subscribe((params) =>{
 
       this.portalService.carregarPage(this.pageId, this.route.snapshot.queryParams['page']).subscribe(
