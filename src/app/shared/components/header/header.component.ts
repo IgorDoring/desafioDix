@@ -36,9 +36,4 @@ export class HeaderComponent {
       this.searchForm.value.search = ""
     }
   }
-
-  ngOnDestroy(){
-    this.headerSubs.unsubscribe()
-    this.search.unsubscribe()
-  }
 }

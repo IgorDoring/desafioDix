@@ -17,8 +17,4 @@ export class FooterComponent {
       }
     );
   }
-
-  ngOnDestroy(){
-    this.footerSubs.unsubscribe()
-  }
 }

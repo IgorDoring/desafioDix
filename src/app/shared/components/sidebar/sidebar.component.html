@@ -17,7 +17,7 @@
 
   <app-publicidade></app-publicidade>
 
-  <section>
+  <section *ngIf="showEnquete">
     <h6 class="mt-4 text-uppercase fw-bold"><img src="assets/Rectangle741.svg" alt=""> Enquetes</h6>
       <app-enquete-section [enq]="enquetes[0]"></app-enquete-section>
     <div class="text-center my-4">

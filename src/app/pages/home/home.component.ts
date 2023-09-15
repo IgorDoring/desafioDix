@@ -44,9 +44,4 @@ export class HomeComponent {
   ngOnInit(){
   }
 
-  ngOnDestroy(){
-    this.destaquesSubs.unsubscribe()
-    this.homeSubs.unsubscribe()
-    this.maislidasSubs.unsubscribe()
-  }
 }

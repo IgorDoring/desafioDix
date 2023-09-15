@@ -24,12 +24,7 @@ export class NewsletterComponent {
     })
   }
 
-  ngOnInit(){
-
-  }
-
   onSubmit(){
-
     if(this.newsletterForm.valid && this.newsletterForm.value.agreement){
       let json = JSON.stringify({"email": this.newsletterForm.value.email, "name": this.newsletterForm.value.name})
       this.sent = true

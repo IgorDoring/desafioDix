@@ -1,5 +1,5 @@
 
-  <form [formGroup]="enqForm" (ngSubmit)="onSubmit()" class="my-3 d-flex flex-column">
+  <form [formGroup]="enqForm" (ngSubmit)="onSubmit()" class="my-3 d-flex flex-column p-2">
     <p class="small">{{enq['name']}}</p>
     <p class="small"><img src="assets/calendario.svg" alt=""> {{ enq['start_date'] | date:'dd/MM/y'}}</p>
     <p class="small"><img src="assets/calendario.svg" alt=""> {{ enq['end_date'] | date:'dd/MM/y'}}</p>
@@ -20,7 +20,7 @@
         </div>
       </div>
       <div class="">
-        <button *ngIf="enq['is_active']"
+        <button *ngIf="enqForm.valid"
                 class="btn btn-danger my-3"
                 type="submit">Votar</button>
         <p *ngIf="!enq['is_active']"

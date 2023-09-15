@@ -32,9 +32,4 @@ export class NewsComponent {
     })
     this.noticia['descritive'] = this.sanitizer.bypassSecurityTrustHtml(this.noticia['descritive'])
   }
-
-
-  ngOnDestroy(){
-    this.noticiaSubs.unsubscribe()
-  }
 }

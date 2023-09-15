@@ -23,8 +23,4 @@ constructor(private route: ActivatedRoute,
       })
   })
 }
-
-  ngOnDestroy(){
-    this.searchSubs.unsubscribe()
-  }
 }

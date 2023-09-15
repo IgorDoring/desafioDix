@@ -123,8 +123,8 @@ export class PortalService{
         let enq: any[] = []
         enq = enquetes["data"]
 
-        console.log(enq)
-        return enq
+        console.log(enquetes)
+        return enquetes
       })
     )
   }
